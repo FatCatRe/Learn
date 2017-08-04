@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo8</title>
+</head>
+<body>
+<script src="https://unpkg.com/react@latest/dist/react.js"></script>
+<script src="https://unpkg.com/react-dom@latest/dist/react-dom.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+<div id="root"></div>
+<script type="text/babel">
+    // 将组件看成是一个状态机，一开始有一个初始状态，然后用户互动，导致状态变化，从而触发重新渲染 UI
+    // this.state
+    var LikeButton = React.createClass({
+        getInitialState: function () {//定义初始化状态
+            return {liked: false};
+        },
+        handleClick: function (event) {
+            this.setState({liked: !this.state.liked});
+        },
+        render: function () {
+            var text = this.state.liked ? 'like' : 'haven\'t liked';
+            return (
+                <p onClick={this.handleClick}>
+                    You {text} this. Click to toggle.
+                </p>
+            );
+        }
+    });
+    ReactDOM.render(
+        <LikeButton />,
+        document.getElementById('root')
+    );
+
+</script>
+</body>
+</html>

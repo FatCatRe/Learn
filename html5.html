@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo5</title>
+</head>
+<body>
+<script src="https://unpkg.com/react@latest/dist/react.js"></script>
+<script src="https://unpkg.com/react-dom@latest/dist/react-dom.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+<div id="root"></div>
+<script type="text/babel">
+    var NoteList = React.createClass({
+        render:function () {
+            return (
+                <ol>
+                    {
+                        React.Children.map(this.props.children,function (child) {
+                            return <li>{child}</li>;
+                        })
+                    }
+                </ol>
+            );
+        }
+    });
+    ReactDOM.render(
+        <NoteList>
+            <span>hello</span>
+            <span>world</span>
+            <span>learn</span>
+            <span>react</span>
+        </NoteList>,
+        document.body
+    );
+</script>
+</body>
+</html>

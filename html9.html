@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo9</title>
+</head>
+<body>
+<script src="https://unpkg.com/react@latest/dist/react.js"></script>
+<script src="https://unpkg.com/react-dom@latest/dist/react-dom.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+<div id="root"></div>
+<script type="text/babel">
+    // 表单
+    var Input = React.createClass({
+        getInitialState: function () {
+            return {value: 'Hello!'};
+        },
+        handleChange: function (event) {
+            this.setState({value: event.target.value});
+        },
+        render: function () {
+            var value = this.state.value;
+            return (
+                <div>
+                    <input type="text" value={value} onChange={this.handleChange}/>
+                    <p>{value}</p>
+                </div>
+            );
+        }
+    });
+    ReactDOM.render(
+        <Input/>,
+        document.getElementById('root')
+    );
+</script>
+</body>
+</html>

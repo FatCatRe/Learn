@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo7</title>
+</head>
+<body>
+<script src="https://unpkg.com/react@latest/dist/react.js"></script>
+<script src="https://unpkg.com/react-dom@latest/dist/react-dom.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+<div id="root"></div>
+<script type="text/babel">
+    // 获取真实的DOM节点
+    var MyComponent = React.createClass({
+        handleClick: function () {
+            this.refs.myTextInput.focus();
+        },
+        render: function () {
+            return (
+                <div>
+                    <input type="text" ref="myTextInput"/>
+                    <input type="button" value="Focus the text input" onClick={this.handleClick}/>
+                </div>
+            );
+        }
+    });
+    ReactDOM.render(
+        <MyComponent/>,
+        document.getElementById('root')
+    );
+</script>
+</body>
+</html>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Demo2</title>
+    <title>Demo4</title>
 </head>
 <body>
 <script src="https://unpkg.com/react@latest/dist/react.js"></script>
@@ -10,15 +10,13 @@
 <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
 <div id="root"></div>
 <script type="text/babel">
-    var names=['Alice','Emily','Kate'];
+    var HelloMessage = React.createClass({
+        render:function () {
+            return <h1>Hello {this.props.name} {this.props.title}</h1>;
+        }
+    });
     ReactDOM.render(
-        <div>
-            {
-                names.map(function (name,index) {
-                    return <div key={index}>Hello,{name}!</div>
-                })
-            }
-        </div>,
+        <HelloMessage name="Alice" title="girl"/>,
         document.getElementById('root')
     );
 </script>
